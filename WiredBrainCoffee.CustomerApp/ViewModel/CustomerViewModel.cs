@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using WiredBrainCoffee.CustomerApp.Data;
 using WiredBrainCoffee.CustomerApp.Model;
 
 namespace WiredBrainCoffee.CustomerApp.ViewModel
 {
-    public class CustomerViewModel : INotifyPropertyChanged
+    public class CustomerViewModel : ViewModelBase
     {
         private readonly ICustomerDataProvider _customerDataProvider;
         private Customer? _selectedCustomer;
@@ -27,8 +25,6 @@ namespace WiredBrainCoffee.CustomerApp.ViewModel
                 RaisePropertyChanged();
             }
         }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
 
         public async Task LoadAsync() {
             // Check if data isn't loaded yet
@@ -48,11 +44,6 @@ namespace WiredBrainCoffee.CustomerApp.ViewModel
             var customer = new Customer { FirstName = "New" };
             Customers.Add(customer);
             SelectedCustomer = customer;
-        }
-
-        // The CallerMemberName attribute will automatically pass the CallerMemberName to the method if no argument is specified
-        private void RaisePropertyChanged([CallerMemberName]string? propertyName = null) {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

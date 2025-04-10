@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WiredBrainCoffee.CustomerApp"
+        xmlns:controls="clr-namespace:WiredBrainCoffee.CustomerApp.Controls"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="600" Width="700" FontSize="20">
@@ -31,16 +32,7 @@
             </MenuItem>
         </Menu>
         
-        <!-- Header -->
-        <Grid Grid.Row="1" Grid.ColumnSpan="3" Background="#F05A28">
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                <Image Source="/Images/logo.png" Width="100" Margin="5"/>
-                <TextBlock Text="Customers App" FontSize="30" 
-                 Foreground="White" VerticalAlignment="Center"/>
-                <TextBlock Text="Version 1.0" FontSize="16"
-                 Foreground="#333333" VerticalAlignment="Bottom" Margin="10 0 0 22"/>
-            </StackPanel>
-        </Grid>
+        <controls:HeaderControl Grid.Row="1" Grid.ColumnSpan="3"/>
 
         <!-- Customer List -->
         <Grid x:Name="customerListGrid" Grid.Row="2" Background="#777">

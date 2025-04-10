@@ -24,5 +24,12 @@ namespace WiredBrainCoffee.CustomerApp
         {
             InitializeComponent();
         }
+
+        private void ButtonMoveNavigation_Click(object sender, RoutedEventArgs e)
+        {
+            int column = (int)customerListGrid.GetValue(Grid.ColumnProperty);
+            int newColumn = column == 0 ? 2 : 0; // If it's 0 becomes 2, else 0
+            customerListGrid.SetValue(Grid.ColumnProperty, newColumn);
+        }
     }
 }

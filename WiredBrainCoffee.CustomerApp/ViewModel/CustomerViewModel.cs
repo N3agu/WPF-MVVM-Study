@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows.Navigation;
 using WiredBrainCoffee.CustomerApp.Data;
 using WiredBrainCoffee.CustomerApp.Model;
 
@@ -10,7 +11,7 @@ namespace WiredBrainCoffee.CustomerApp.ViewModel
 {
     public class CustomerViewModel : ViewModelBase
     {
-        private int _navigationColumn;
+        private NavigationSide _navigationSide;
         private readonly ICustomerDataProvider _customerDataProvider;
         private CustomerItemViewModel? _selectedCustomer;
 
@@ -27,12 +28,12 @@ namespace WiredBrainCoffee.CustomerApp.ViewModel
             }
         }
 
-        public int NavigationColumn
+        public NavigationSide NavigationSide
         {
-            get => _navigationColumn;
+            get => _navigationSide;
             set
             {
-                _navigationColumn = value;
+                _navigationSide = value;
                 RaisePropertyChanged();
             }
         }
@@ -60,7 +61,13 @@ namespace WiredBrainCoffee.CustomerApp.ViewModel
 
         internal void MoveNavigation()
         {
-            NavigationColumn = NavigationColumn == 0 ? 2 : 0; // If it's 0 becomes 2, else 0
+            NavigationSide = NavigationSide == NavigationSide.Left ? NavigationSide.Right : NavigationSide.Left;
         }
+
+    }
+    public enum NavigationSide
+    {
+        Left,
+        Right
     }
 }

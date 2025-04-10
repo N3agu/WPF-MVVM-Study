@@ -47,5 +47,10 @@ namespace WiredBrainCoffee.CustomerApp.View
             int newColumn = column == 0 ? 2 : 0; // If it's 0 becomes 2, else 0
             Grid.SetColumn(customerListGrid, newColumn);
         }
+
+        private void ButtonAdd_Click(object sender, RoutedEventArgs e)
+        {
+            _viewModel.Add();
+        }
     }
 }

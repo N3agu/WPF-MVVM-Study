@@ -24,5 +24,10 @@ namespace WiredBrainCoffee.CustomerApp
         {
             InitializeComponent();
         }
+
+        private void ButtonAddCustomer_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

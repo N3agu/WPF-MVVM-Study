@@ -6,19 +6,19 @@
         xmlns:local="clr-namespace:WiredBrainCoffee.CustomerApp"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="600" Width="500" FontSize="20">
+        Height="600" Width="700" FontSize="20">
     <Grid>
         <!-- Define 2 columns -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition/>
         <!-- Define 4 rows -->
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/> <!-- Default to Height="*" -->
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
             
         <!-- Main menu -->
@@ -31,13 +31,15 @@
         </Menu>
         
         <!-- Header -->
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Background="#F05A28" Orientation="Horizontal">
-            <Image Source="/Images/logo.png" Width="100"/>
-            <TextBlock Text="Customers App" FontSize="30"
-                       Foreground="White"/>
-            <TextBlock Text="Version 1.6" FontSize="16"
-                       Foreground="White"/>
-        </StackPanel>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Background="#F05A28">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Source="/Images/logo.png" Width="100" Margin="5"/>
+                <TextBlock Text="Customers App" FontSize="30"
+                           Foreground="White" VerticalAlignment="Center"/>
+                <TextBlock Text="Version 1.6" FontSize="16"
+                           Foreground="#333333" VerticalAlignment="Bottom" Margin="10 0 0 22"/>
+            </StackPanel>
+        </Grid>
         
         <!-- Customer List -->
         <StackPanel Grid.Row="2">

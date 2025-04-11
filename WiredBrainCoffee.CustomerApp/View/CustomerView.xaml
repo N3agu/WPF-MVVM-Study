@@ -42,7 +42,8 @@
         </Grid>
 
         <!-- Customer detail -->
-        <StackPanel Grid.Row="2" Grid.Column="1" Margin="10">
+        <StackPanel Visibility="{Binding IsCustomerSelected, Converter={StaticResource BooleanToVisibilityConverter}}"
+            Grid.Row="2" Grid.Column="1" Margin="10">
             <Label>Firstname:</Label>
             <!-- if path is the first property in the binding, you can omit it | Two Way mode is default -->
             <TextBox Text="{Binding SelectedCustomer.FirstName, UpdateSourceTrigger=PropertyChanged}"/>

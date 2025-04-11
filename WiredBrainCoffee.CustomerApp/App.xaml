@@ -7,5 +7,6 @@
         <!-- Application-wide resources -->
         <SolidColorBrush Color="#F05A28" x:Key="HeaderBackgroundBrush"/>
         <SolidColorBrush Color="White" x:Key="HeaderForegroundBrush"/>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     </Application.Resources>
 </Application>

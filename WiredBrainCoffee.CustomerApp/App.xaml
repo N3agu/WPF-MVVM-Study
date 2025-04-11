@@ -5,8 +5,12 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <!-- Application-wide resources -->
-        <SolidColorBrush Color="#F05A28" x:Key="HeaderBackgroundBrush"/>
-        <SolidColorBrush Color="White" x:Key="HeaderForegroundBrush"/>
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <ResourceDictionary>
+            <!-- can only define 1 resource dictionary so we use MergedDictionaries -->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Brushes.xaml"/>
+                <ResourceDictionary Source="/Resources/Converters.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

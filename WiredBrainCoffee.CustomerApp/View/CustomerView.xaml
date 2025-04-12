@@ -47,13 +47,21 @@
         </Grid>
 
         <!-- Customer detail -->
-        <StackPanel Visibility="{Binding IsCustomerSelected, Converter={StaticResource BooleanToVisibilityConverter}}"
-            Grid.Row="2" Grid.Column="1" Margin="10">
+        <StackPanel Visibility="{Binding IsCustomerSelected, Converter={StaticResource BooleanToVisibilityConverter}}" Grid.Row="2" Grid.Column="1" Margin="10">
+            <StackPanel.Resources>
+                <Style TargetType="TextBox" x:Key="TextBoxStyle">
+                    <Setter Property="Background" Value="#555555"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Padding" Value="5"/>
+                </Style>
+            </StackPanel.Resources>
             <Label>Firstname:</Label>
             <!-- if path is the first property in the binding, you can omit it | Two Way mode is default -->
-            <TextBox Text="{Binding SelectedCustomer.FirstName, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Text="{Binding SelectedCustomer.FirstName, UpdateSourceTrigger=PropertyChanged}"
+                    Style="{StaticResource TextBoxStyle}"/>
             <Label>Lastname:</Label>
-            <TextBox Text="{Binding SelectedCustomer.LastName, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Text="{Binding SelectedCustomer.LastName, UpdateSourceTrigger=PropertyChanged}"
+                    Style="{StaticResource TextBoxStyle}"/>
             <CheckBox Margin="0 10 0 0" IsChecked="{Binding SelectedCustomer.IsDeveloper, UpdateSourceTrigger=PropertyChanged}">
                 Is developer
             </CheckBox>

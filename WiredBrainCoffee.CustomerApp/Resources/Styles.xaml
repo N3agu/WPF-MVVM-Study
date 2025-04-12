@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-
     <Style TargetType="ToolTip">
         <Setter Property="FontSize" Value="20"/>
     </Style>
@@ -12,11 +11,22 @@
         <!-- Inherits from BaseStyle -->
         <Setter Property="Background" Value="#555555"/>
         <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Validation.ErrorTemplate">
+            <Setter.Value>
+                <ControlTemplate>
+                    <StackPanel>
+                        <AdornedElementPlaceholder/>
+                        <TextBlock Margin="3 0 0 0" Foreground="Red" Text="FirstName can not be null."/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
         <Style.Triggers>
             <Trigger Property="IsFocused" Value="True">
                 <Setter Property="Background" Value="#111111"/>
             </Trigger>
             <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="Margin" Value="0 0 0 20"/>
                 <Setter Property="Background" Value="Red"/>
                 <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self},
                     Path=(Validation.Errors)[0].ErrorContent}"/>

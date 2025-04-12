@@ -9,6 +9,11 @@
         mc:Ignorable="d"
         Title="MainWindow"
         Height="600" Width="700" FontSize="20">
+    <Window.Resources>
+        <DataTemplate x:Key="CustomersViewModelTemplate">
+            <view:CustomerView/>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         <!-- Define 4 rows -->
         <Grid.RowDefinitions>
@@ -28,7 +33,7 @@
         </Menu>
         
         <controls:HeaderControl Grid.Row="1" Grid.ColumnSpan="3"/>
-        <view:CustomerView Grid.Row="2" DataContext="{Binding SelectedViewModel}"/>
+        <ContentControl Grid.Row="2" Content="{Binding SelectedViewModel}" ContentTemplate="{StaticResource CustomersViewModelTemplate}"/>
 
         <!-- Status bar -->
         <StatusBar Background="{StaticResource HeaderBackgroundBrush}" Grid.Row="3">

@@ -30,9 +30,10 @@
         <!-- Main menu -->
         <Menu FontSize="20">
             <MenuItem Header="_View">
-                <MenuItem Header="_Customer"/>
-                <MenuItem Header="_Products"/>
-                <MenuItem/>
+                <MenuItem Header="_Customer" Command="{Binding SelectViewModelCommand}"
+                          CommandParameter="{Binding CustomerViewModel}"/>
+                <MenuItem Header="_Products" Command="{Binding SelectViewModelCommand}"
+                          CommandParameter="{Binding ProductViewModel}"/>
             </MenuItem>
         </Menu>
         

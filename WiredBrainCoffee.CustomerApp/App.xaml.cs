@@ -23,6 +23,7 @@ namespace WiredBrainCoffee.CustomerApp {
             services.AddTransient<ProductViewModel>();
 
             services.AddTransient<ICustomerDataProvider, CustomerDataProvider>();
+            services.AddTransient<IProductDataProvider, ProductDataProvider>();
         }
 
         protected override void OnStartup(StartupEventArgs e) {

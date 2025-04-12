@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows.Navigation;
 using WiredBrainCoffee.CustomerApp.Command;
 using WiredBrainCoffee.CustomerApp.Data;
 using WiredBrainCoffee.CustomerApp.Model;

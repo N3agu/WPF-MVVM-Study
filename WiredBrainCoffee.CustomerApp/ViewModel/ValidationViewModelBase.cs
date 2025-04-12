@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 namespace WiredBrainCoffee.CustomerApp.ViewModel {
-    internal class ValidationViewModelBase : ViewModelBase, INotifyDataErrorInfo
+    public class ValidationViewModelBase : ViewModelBase, INotifyDataErrorInfo
     {
         private readonly Dictionary<string, List<string>> _errorsByPropertyName = new();
         public bool HasErrors => _errorsByPropertyName.Any();
@@ -23,8 +24,10 @@ namespace WiredBrainCoffee.CustomerApp.ViewModel {
             ErrorsChanged?.Invoke(this, args);
         }
 
-        protected void AddError(string error, string propertyName)
+        protected void AddError(string error,
+            [CallerMemberName] string? propertyName = null)
         {
+            if (propertyName is null) return;
             if (!_errorsByPropertyName.ContainsKey(propertyName))
             {
                 _errorsByPropertyName[propertyName] = new List<string>();
@@ -37,8 +40,9 @@ namespace WiredBrainCoffee.CustomerApp.ViewModel {
             }
         }
 
-        protected void ClearErrors(string propertyName)
+        protected void ClearErrors([CallerMemberName] string? propertyName = null)
         {
+            if (propertyName is null) return;
             if (_errorsByPropertyName.ContainsKey(propertyName))
             {
                 _errorsByPropertyName.Remove(propertyName);

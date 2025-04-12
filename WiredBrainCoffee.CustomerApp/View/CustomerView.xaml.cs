@@ -15,26 +15,10 @@ using System.Windows.Shapes;
 using WiredBrainCoffee.CustomerApp.Data;
 using WiredBrainCoffee.CustomerApp.ViewModel;
 
-namespace WiredBrainCoffee.CustomerApp.View
-{
-    /// <summary>
-    /// Interaction logic for CustomerView.xaml
-    /// </summary>
-    public partial class CustomerView : UserControl
-    {
-        private CustomerViewModel _viewModel;
-
-        public CustomerView()
-        {
+namespace WiredBrainCoffee.CustomerApp.View {
+    public partial class CustomerView : UserControl {
+        public CustomerView() {
             InitializeComponent();
-            _viewModel = new CustomerViewModel(new CustomerDataProvider());
-            DataContext = _viewModel;
-            Loaded += CustomerView_Loaded;
-        }
-
-        private async void CustomerView_Loaded(object sender, RoutedEventArgs e)
-        {
-            await _viewModel.LoadAsync();
         }
     }
 }

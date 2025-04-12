@@ -52,7 +52,7 @@ namespace WiredBrainCoffee.CustomerApp.ViewModel
             }
         }
 
-        public async Task LoadAsync() {
+        public async override Task LoadAsync() {
             // Check if data isn't loaded yet
             if (Customers.Any()) {
                 return;

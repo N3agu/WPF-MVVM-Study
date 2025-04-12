@@ -28,7 +28,7 @@
         </Menu>
         
         <controls:HeaderControl Grid.Row="1" Grid.ColumnSpan="3"/>
-        <view:CustomerView Grid.Row="2"/>
+        <view:CustomerView Grid.Row="2" DataContext="{Binding SelectedViewModel}"/>
 
         <!-- Status bar -->
         <StatusBar Background="{StaticResource HeaderBackgroundBrush}" Grid.Row="3">
